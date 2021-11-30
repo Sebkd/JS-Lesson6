@@ -36,6 +36,21 @@
     -->
 
     <script>
+
+        function lighton(element, classStars) {
+            if (element) {
+                lighton(element.previousElementSibling);
+                element.classList.add(goldenClass);
+            }
+        }
+
+        function lightoff(element, classStars) {
+            if (element) {
+                lightoff(element.previousElementSibling);
+                element.classList.remove(goldenClass);
+            }
+        }
+
         let firstStar = document.getElementById('first');
         let secondStar = document.getElementById('second');
         let thirdStar = document.getElementById('third');
@@ -46,21 +61,54 @@
 
         firstStar.addEventListener('mouseover', function () {
             if (!firstStar.classList.contains('goldenClass')) {
-                firstStar.classList.add(goldenClass);
+                lighton(firstStar, goldenClass);
             }
+        });
+
+        firstStar.addEventListener('mouseout', function () {
+            lightoff(firstStar, goldenClass);
         });
 
         secondStar.addEventListener('mouseover', function () {
             if (!secondStar.classList.contains('goldenClass')) {
-                secondStar.classList.add(goldenClass);
-                secondStar.previousSibling
-            }
-
+                lighton(secondStar, goldenClass);
+            };
         });
 
-        firstStar.addEventListener('mouseout', function () {
-            firstStar.classList.remove(goldenClass);
+        secondStar.addEventListener('mouseout', function () {
+            lightoff(secondStar, goldenClass);
         });
+
+        thirdStar.addEventListener('mouseover', function () {
+            if (!thirdStar.classList.contains('goldenClass')) {
+                lighton(thirdStar, goldenClass);
+            };
+        });
+
+        thirdStar.addEventListener('mouseout', function () {
+            lightoff(thirdStar, goldenClass);
+        });
+
+        fourthStar.addEventListener('mouseover', function () {
+            if (!fourthStar.classList.contains('goldenClass')) {
+                lighton(fourthStar, goldenClass);
+            };
+        });
+
+        fourthStar.addEventListener('mouseout', function () {
+            lightoff(fourthStar, goldenClass);
+        });
+
+        fifthStar.addEventListener('mouseover', function () {
+            if (!fifthStar.classList.contains('goldenClass')) {
+                lighton(fifthStar, goldenClass);
+            };
+        });
+
+        fifthStar.addEventListener('mouseout', function () {
+            lightoff(fifthStar, goldenClass);
+        });
+
 
     </script>
 </body>
